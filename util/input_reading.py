@@ -15,7 +15,8 @@ def to_matrix(val, features_num = 116, timestamp_num = 115):
 def to_corr_matrix(val):
     '''turns a row of a df into a corr matrix between the features'''
     m = to_matrix(val)
-    cor = np.corrcoef(m)
+    with np.errstate(invalid='ignore'):
+        cor = np.corrcoef(m)
     # some features have 0 variance, so we must fix them
     np.fill_diagonal(cor, 1) 
     cor = np.nan_to_num(cor)

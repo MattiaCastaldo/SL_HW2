@@ -6,15 +6,15 @@ LOCO
 4-For each patient
 	-Calculate the loss{Y, f_hat_n_1} (Difference between True and obtained prediction)
    	This gives us all the “baseline” errors —> 300 estimated errors obtained by training a model USING ALL VARIABLES.
-5-For 10 times (one for each of the 10 selected variable): [[[we have to choose 10 potentially important features]]]]
+5-For 10 times (one for each of the 10 selected variables): [[[we have to choose 10 potentially important variables]]]]
 	  -Train a classification algorithm to estimate f_hat_n_1 , (but this time REMOVE variable J from Dn_1 before training) 
 	  -With this trained model on Dn_1(-j), make predictions on Dn_2.
          For each patient in Dn_2 (300 patients):
-            -Calculate the loss{Y, f_hat_n_1(-j)} (Difference between True and obtained prediction by removing variable J)
-		        -Calculate difference between: the “baseline" error on Patient [i] and the error obtained without var. J
-	  -We obtain a dataset of differences between baseline erros and obtained errors without var J
+            	-Calculate the loss{Y, f_hat_n_1(-j)} (Difference between True and obtained prediction by removing variable J)
+		-Calculate difference between: the “baseline" error on Patient [i] and the error obtained without var. J
+	  We obtain a dataset of differences between baseline erros and obtained errors without var J
 	  -Calculate the median of these dataset
 	  -For B bootstraped datasets on the dataset of differences obtained:
-		    Calculate the median of these dataset of differences
+		    -Calculate the median of these dataset of differences
 6- Obtain a (bootstrapped) distribution of Medians of the differences between baseline errors and errors w/o J.	
 7- Build a confidence interval of this diestro ( account for FWER, so divide alpha/10 i think)

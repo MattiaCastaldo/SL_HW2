@@ -5,7 +5,7 @@ LOCO
 3- With this trained model on Dn_1, make predictions on Dn_2. 
 4-For each patient
 	-Calculate the loss{Y, f_hat_n_1} (Difference between True and obtained prediction)
-   This gives us all the “baseline” errors —> 300 estimated errors obtained by training a model USING ALL VARIABLES.
+   	This gives us all the “baseline” errors —> 300 estimated errors obtained by training a model USING ALL VARIABLES.
 5-For 10 times (one for each of the 10 selected variable): [[[we have to choose 10 potentially important features]]]]
 	  -Train a classification algorithm to estimate f_hat_n_1 , (but this time REMOVE variable J from Dn_1 before training) 
 	  -With this trained model on Dn_1(-j), make predictions on Dn_2.

@@ -19,5 +19,5 @@ def to_corr_matrix(val):
         cor = np.corrcoef(m)
     # some features have 0 variance, so we must fix them
     np.fill_diagonal(cor, 1) 
-    cor = np.nan_to_num(cor)
+    # cor = np.nan_to_num(cor)
     return cor
